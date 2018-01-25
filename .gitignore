@@ -8,6 +8,3 @@ npm-*
 # Testing
 /.nyc_output
 /coverage
-
-/dist.js
-/dist.js.map
