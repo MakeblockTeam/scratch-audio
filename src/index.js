@@ -200,6 +200,7 @@ class AudioEngine {
         const bufferCopy = sound.data.buffer.slice(0);
 
         switch (sound.format) {
+        case undefined:
         case '':
             // Check for newer promise-based API
             if (this.audioContext.decodeAudioData.length === 1) {
