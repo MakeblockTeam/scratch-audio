@@ -8,7 +8,8 @@
     "build": "webpack --bail",
     "watch": "webpack --watch",
     "lint": "eslint .",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "cp": "cp -rf dist.js dist.js.map ../mscratch-mobile/node_modules/scratch-audio"
   },
   "repository": {
     "type": "git",
