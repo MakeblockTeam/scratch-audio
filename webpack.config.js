@@ -1,6 +1,7 @@
 var path = require('path');
 
 module.exports = {
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     devtool: 'cheap-module-source-map',
     entry: {
         dist: './src/index.js'
@@ -12,13 +13,18 @@ module.exports = {
         filename: '[name].js'
     },
     module: {
-        loaders: [{
+        rules: [{
             test: /\.js$/,
-            loader: 'babel-loader',
             include: path.resolve(__dirname, 'src'),
-            query: {
-                presets: ['es2015']
+            loader: 'babel-loader',
+            options: {
+                presets: [['env', {targets: {browsers: ['last 3 versions', 'Safari >= 8', 'iOS >= 8']}}]]
             }
         }]
+    },
+    externals: {
+        'audio-context': true,
+        'minilog': true,
+        'startaudiocontext': true
     }
 };
